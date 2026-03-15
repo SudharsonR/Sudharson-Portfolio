@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sudharson Ravi | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#000000;
+--bg-soft:#0b0b0b;
+--bg-card:#111111;
+--text:#f5f0e8;
+--muted:#8b837c;
+--gold:#b8975a;
+--gold-light:#ffcc66;
+--line:rgba(184,151,90,0.22);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'Tenor Sans',sans-serif;
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.25;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+z-index:1;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img,video{
+max-width:100%;
+display:block;
+}
+
+button,input,textarea{
+font:inherit;
+}
+
+.cursor,.cursor-ring{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+z-index:9999;
+transform:translate(-50%,-50%);
+}
+
+.cursor{
+width:8px;
+height:8px;
+background:var(--gold);
+border-radius:50%;
+}
+
+.cursor-ring{
+width:34px;
+height:34px;
+border:1px solid rgba(184,151,90,.45);
+border-radius:50%;
+transition:width .25s ease,height .25s ease,border-color .25s ease;
+z-index:9998;
+}
+
+.cursor-ring.hovered{
+width:54px;
+height:54px;
+border-color:var(--gold);
+}
+
+@media (hover:none),(pointer:coarse){
+.cursor,.cursor-ring{
+display:none;
+}
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:100;
+backdrop-filter:blur(10px);
+background:rgba(0,0,0,.45);
+}
+
+nav{
+max-width:1280px;
+margin:auto;
+padding:24px 32px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-bottom:1px solid var(--line);
+}
+
+.logo{
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+font-weight:400;
+letter-spacing:.08em;
+}
+
+.logo span{
+color:var(--gold);
+}
+
+.nav-links{
+display:flex;
+gap:28px;
+list-style:none;
+}
+
+.nav-links a{
+font-size:12px;
+letter-spacing:.22em;
+text-transform:uppercase;
+color:var(--muted);
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:var(--gold);
+}
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+align-items:center;
+gap:40px;
+padding:140px 32px 80px;
+max-width:1280px;
+margin:auto;
+position:relative;
+z-index:2;
+}
+
+.hero-photo{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.hero-left{
+position:relative;
+z-index:2;
+}
+
+.eyebrow{
+font-size:11px;
+letter-spacing:.35em;
+text-transform:uppercase;
+color:var(--gold);
+margin-bottom:26px;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(56px,9vw,108px);
+line-height:.92;
+font-weight:300;
+letter-spacing:-.03em;
+margin-bottom:22px;
+}
+
+.hero h1 em{
+font-style:italic;
+color:var(--gold-light);
+}
+
+.tagline{
+max-width:500px;
+font-size:14px;
+line-height:1.9;
+letter-spacing:.05em;
+color:var(--muted);
+margin-bottom:42px;
+}
+
+.hero-actions{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:16px 28px;
+border:1px solid var(--gold);
+color:var(--gold);
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:.24em;
+transition:.3s;
+background:transparent;
+cursor:pointer;
+}
+
+.btn:hover{
+background:var(--gold);
+color:#000;
+}
+
+.btn-secondary{
+border-color:rgba(184,151,90,.35);
+color:var(--text);
+}
+
+.btn-secondary:hover{
+background:var(--bg-card);
+color:var(--gold);
+border-color:var(--gold);
+}
+
+.hero-right{
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+.hero-frame{
+width:min(440px,90%);
+aspect-ratio:3/4;
+border:1px solid rgba(184,151,90,.4);
+padding:14px;
+position:relative;
+}
+
+.hero-frame::before{
+content:"";
+position:absolute;
+inset:-1px;
+background:linear-gradient(135deg,rgba(184,151,90,.45),transparent 40%,rgba(184,151,90,.4));
+z-index:0;
+}
+
+.hero-inner{
+position:relative;
+z-index:1;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 35% 20%,rgba(184,151,90,.18),transparent 38%),
+linear-gradient(160deg,#161616 0%,#060606 75%);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+.float-note{
+position:absolute;
+font-size:10px;
+letter-spacing:.28em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+.note-1{
+left:0;
+bottom:50px;
+}
+
+.note-2{
+right:0;
+top:40px;
+writing-mode:vertical-rl;
+}
+
+.section{
+max-width:1280px;
+margin:auto;
+padding:110px 32px;
+position:relative;
+z-index:2;
+}
+
+.section-header{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:56px;
+}
+
+.section-no{
+font-size:10px;
+letter-spacing:.35em;
+color:var(--gold);
+}
+
+.section-line{
+width:56px;
+height:1px;
+background:var(--gold);
+opacity:.55;
+}
+
+.section-title{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(34px,5vw,58px);
+font-weight:300;
+}
+
+.section-title em{
+color:var(--gold-light);
+font-style:italic;
+}
+
+.stats{
+padding-top:20px;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);
+}
+
+.stat{
+padding:42px 18px;
+text-align:center;
+border-right:1px solid var(--line);
+}
+
+.stat:last-child{
+border-right:none;
+}
+
+.stat h3{
+font-family:'Cormorant Garamond',serif;
+font-size:50px;
+font-weight:300;
+color:var(--gold);
+margin-bottom:10px;
+}
+
+.stat p{
+font-size:10px;
+letter-spacing:.28em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:1px;
+background:var(--line);
+border:1px solid var(--line);
+}
+
+.service-card{
+background:var(--bg);
+padding:40px 34px;
+min-height:290px;
+position:relative;
+transition:.35s;
+overflow:hidden;
+}
+
+.service-card:hover{
+background:var(--bg-soft);
+transform:translateY(-4px);
+}
+
+.service-index{
+position:absolute;
+top:18px;
+right:24px;
+font-family:'Cormorant Garamond',serif;
+font-size:60px;
+color:rgba(184,151,90,.12);
+}
+
+.service-card h3{
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+font-weight:300;
+margin:48px 0 14px;
+}
+
+.service-card p{
+font-size:13px;
+line-height:1.9;
+color:var(--muted);
+}
+
+.tags{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:24px;
+}
+
+.tag{
+padding:6px 12px;
+border:1px solid rgba(184,151,90,.32);
+font-size:9px;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:var(--gold);
+}
+
+.projects-wrap{
+border:1px solid var(--line);
+background:linear-gradient(180deg,#090909 0%,#050505 100%);
+}
+
+.project-tabs{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+padding:24px;
+border-bottom:1px solid var(--line);
+}
+
+.tab-btn{
+background:transparent;
+border:1px solid rgba(184,151,90,.28);
+color:var(--muted);
+padding:14px 18px;
+font-size:11px;
+letter-spacing:.18em;
+text-transform:uppercase;
+cursor:pointer;
+transition:.3s;
+}
+
+.tab-btn.active,.tab-btn:hover{
+background:var(--gold);
+border-color:var(--gold);
+color:#000;
+}
+
+.projects-grid{
+padding:24px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
+
+.project-card{
+background:var(--bg-card);
+border:1px solid rgba(184,151,90,.14);
+overflow:hidden;
+transition:.35s;
+cursor:pointer;
+}
+
+.project-card:hover{
+transform:translateY(-5px);
+border-color:rgba(184,151,90,.38);
+}
+
+.project-link{
+display:block;
+color:inherit;
+text-decoration:none;
+height:100%;
+}
+
+.project-thumb{
+height:240px;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+background:
+radial-gradient(circle at 30% 25%,rgba(184,151,90,.18),transparent 30%),
+linear-gradient(160deg,#171717 0%,#060606 100%);
+}
+
+.project-thumb::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.55),transparent 45%);
+pointer-events:none;
+}
+
+.project-image,.project-video{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:transform .35s ease;
+}
+
+.project-card:hover .project-image,
+.project-card:hover .project-video{
+transform:scale(1.05);
+}
+
+.project-badge{
+position:absolute;
+top:16px;
+left:16px;
+z-index:2;
+padding:6px 10px;
+font-size:9px;
+letter-spacing:.18em;
+text-transform:uppercase;
+border:1px solid rgba(184,151,90,.38);
+color:var(--gold);
+background:rgba(0,0,0,.35);
+}
+
+.project-initial{
+position:relative;
+z-index:1;
+font-family:'Cormorant Garamond',serif;
+font-size:70px;
+color:rgba(184,151,90,.18);
+}
+
+.project-content{
+padding:22px;
+}
+
+.project-content h3{
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+font-weight:300;
+margin-bottom:10px;
+}
+
+.project-content p{
+font-size:13px;
+line-height:1.85;
+color:var(--muted);
+margin-bottom:14px;
+}
+
+.project-meta{
+font-size:10px;
+letter-spacing:.22em;
+text-transform:uppercase;
+color:var(--gold);
+}
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+border:1px solid var(--line);
+}
+
+.process-card{
+padding:38px 28px;
+border-right:1px solid var(--line);
+}
+
+.process-card:last-child{
+border-right:none;
+}
+
+.process-step{
+font-family:'Cormorant Garamond',serif;
+font-size:15px;
+letter-spacing:.18em;
+color:var(--gold);
+display:block;
+margin-bottom:16px;
+}
+
+.process-card h3{
+font-family:'Cormorant Garamond',serif;
+font-size:25px;
+font-weight:300;
+margin-bottom:12px;
+}
+
+.process-card p{
+font-size:13px;
+line-height:1.9;
+color:var(--muted);
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:start;
+}
+
+.contact-copy p{
+font-size:14px;
+line-height:1.9;
+color:var(--muted);
+max-width:480px;
+margin:20px 0 30px;
+}
+
+.contact-points{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.contact-points span{
+font-size:12px;
+letter-spacing:.14em;
+color:var(--muted);
+}
+
+.contact-points strong{
+color:var(--text);
+font-weight:400;
+}
+
+.form{
+display:grid;
+gap:16px;
+}
+
+.field{
+border-bottom:1px solid var(--line);
+padding-bottom:10px;
+}
+
+.field label{
+display:block;
+font-size:10px;
+letter-spacing:.28em;
+text-transform:uppercase;
+color:var(--gold);
+margin-bottom:12px;
+}
+
+.field input,.field textarea{
+width:100%;
+background:transparent;
+border:none;
+outline:none;
+color:var(--text);
+padding:8px 0;
+}
+
+.field textarea{
+resize:vertical;
+min-height:110px;
+}
+
+footer{
+max-width:1280px;
+margin:auto;
+padding:36px 32px 60px;
+border-top:1px solid var(--line);
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+position:relative;
+z-index:2;
+}
+
+.footer-left{
+font-family:'Cormorant Garamond',serif;
+font-size:24px;
+}
+
+.footer-left span{
+color:var(--gold);
+}
+
+.footer-center{
+font-size:10px;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+.footer-right{
+display:flex;
+gap:18px;
+}
+
+.footer-right a{
+font-size:10px;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:var(--muted);
+transition:.3s;
+}
+
+.footer-right a:hover{
+color:var(--gold);
+}
+
+.reveal{
+opacity:0;
+transform:translateY(28px);
+transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.92);
+display:flex;
+align-items:center;
+justify-content:center;
+padding:30px;
+z-index:10000;
+opacity:0;
+visibility:hidden;
+transition:.3s;
+}
+
+.lightbox.active{
+opacity:1;
+visibility:visible;
+}
+
+.lightbox-content{
+position:relative;
+max-width:95vw;
+max-height:95vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.lightbox img,
+.lightbox video{
+max-width:100%;
+max-height:90vh;
+object-fit:contain;
+border:1px solid rgba(184,151,90,.35);
+box-shadow:0 0 35px rgba(0,0,0,.5);
+}
+
+.lightbox video{
+background:#000;
+}
+
+.lightbox-close{
+position:absolute;
+top:-50px;
+right:0;
+background:transparent;
+border:1px solid var(--gold);
+color:var(--gold);
+width:40px;
+height:40px;
+font-size:22px;
+cursor:pointer;
+transition:.3s;
+z-index:2;
+}
+
+.lightbox-close:hover{
+background:var(--gold);
+color:#000;
+}
+
+.graphics-click{
+cursor:pointer;
+}
+
+@media (max-width:1100px){
+.hero{
+grid-template-columns:1fr;
+padding-top:120px;
+}
+.hero-right{
+order:-1;
+}
+.stats-grid{
+grid-template-columns:repeat(2,1fr);
+}
+.services-grid{
+grid-template-columns:1fr;
+}
+.projects-grid{
+grid-template-columns:repeat(2,1fr);
+}
+.process-grid{
+grid-template-columns:repeat(2,1fr);
+}
+.process-card:nth-child(2){
+border-right:none;
+}
+.contact-grid{
+grid-template-columns:1fr;
+}
+}
+
+@media (max-width:760px){
+nav{
+padding:18px 20px;
+flex-direction:column;
+gap:16px;
+}
+.nav-links{
+gap:16px;
+flex-wrap:wrap;
+justify-content:center;
+}
+.hero,.section,footer{
+padding-left:20px;
+padding-right:20px;
+}
+.hero{
+padding-bottom:50px;
+}
+.note-1,.note-2{
+display:none;
+}
+.stats-grid{
+grid-template-columns:1fr;
+}
+.stat{
+border-right:none;
+border-bottom:1px solid var(--line);
+}
+.stat:last-child{
+border-bottom:none;
+}
+.projects-grid{
+grid-template-columns:1fr;
+}
+.process-grid{
+grid-template-columns:1fr;
+}
+.process-card{
+border-right:none;
+border-bottom:1px solid var(--line);
+}
+.process-card:last-child{
+border-bottom:none;
+}
+footer{
+flex-direction:column;
+text-align:center;
+}
+.lightbox{
+padding:20px;
+}
+.lightbox-close{
+top:-45px;
+}
+}
+
+@media (prefers-reduced-motion:reduce){
+*{
+animation:none!important;
+transition:none!important;
+scroll-behavior:auto!important;
+}
+.reveal{
+opacity:1;
+transform:none;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header>
+<nav>
+<a href="#home" class="logo">Sudharson<span> </span>Ravi</a>
+<ul class="nav-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-left reveal">
+<p class="eyebrow">Video Editor · Graphics Designer · UI/UX Designer</p>
+<h1>Sudharson<br><em>Ravi</em><br></h1>
+<p class="tagline">
+I create cinematic edits, strong visual branding, and elegant digital experiences.
+Every frame, layout, and interaction is crafted with clarity, detail, and purpose.
+</p>
+<div class="hero-actions">
+<a href="#projects" class="btn">View Projects</a>
+<a href="#contact" class="btn btn-secondary">Contact Me</a>
+</div>
+</div>
+
+<div class="hero-right reveal">
+<div class="hero-frame">
+<div class="hero-inner">
+<img src="images/Sudha.png" alt="Sudharson Ravi" class="hero-photo">
+</div>
+</div>
+<div class="float-note note-1"></div>
+<div class="float-note note-2"></div>
+</div>
+</section>
+
+<section class="section stats">
+<div class="stats-grid reveal">
+<div class="stat">
+<h3>200+</h3>
+<p>Projects Completed</p>
+</div>
+<div class="stat">
+<h3>3+</h3>
+<p>Years Experience</p>
+</div>
+<div class="stat">
+<h3>17+</h3>
+<p>Happy Clients</p>
+</div>
+<div class="stat">
+<h3>4.5/5</h3>
+<p>Rating</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="section-header reveal">
+<span class="section-no">01</span>
+<span class="section-line"></span>
+<h2 class="section-title">What I <em>Do</em></h2>
+</div>
+
+<div class="services-grid">
+<div class="service-card reveal">
+<span class="service-index">01</span>
+<h3>Video Editing</h3>
+<p>
+Professional editing for reels, travel videos, cinematic edits, promo videos, and YouTube content with smooth cuts, color grading, transitions, and storytelling.
+</p>
+<div class="tags">
+<span class="tag">DaVinci Resolve</span>
+<span class="tag">Premiere Pro</span>
+<span class="tag">After Effects</span>
+<span class="tag">Color Grading</span>
+<span class="tag">Kling.AI</span>
+</div>
+</div>
+
+<div class="service-card reveal">
+<span class="service-index">02</span>
+<h3>Graphics Design</h3>
+<p>
+Creative posters, social media designs, brand visuals, thumbnails, banners, and marketing materials designed to capture attention and build strong visual identity.
+</p>
+<div class="tags">
+<span class="tag">Motion Design</span>
+<span class="tag">2D/3D</span>
+<span class="tag">Brand Animation</span>
+</div>
+</div>
+
+<div class="service-card reveal">
+<span class="service-index">03</span>
+<h3>UI-UX Design</h3>
+<p>
+Modern user interfaces and thoughtful user experiences for websites, apps, landing pages, dashboards, and digital products with clean layouts and usable flows.
+</p>
+<div class="tags">
+<span class="tag">Figma</span>
+<span class="tag">Prototyping</span>
+<span class="tag">Case Studies</span>
+<span class="tag">Design Systems</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="projects">
+<div class="section-header reveal">
+<span class="section-no">02</span>
+<span class="section-line"></span>
+<h2 class="section-title">Selected <em>Projects</em></h2>
+</div>
+
+<div class="projects-wrap reveal">
+<div class="project-tabs">
+<button class="tab-btn active" data-tab="video">Video Editing</button>
+<button class="tab-btn" data-tab="graphics">Graphics Design</button>
+<button class="tab-btn" data-tab="uiux">UI-UX Design</button>
+</div>
+<div class="projects-grid" id="projectsGrid"></div>
+</div>
+</section>
+
+<section class="section" id="process">
+<div class="section-header reveal">
+<span class="section-no">03</span>
+<span class="section-line"></span>
+<h2 class="section-title">My <em>Process</em></h2>
+</div>
+
+<div class="process-grid">
+<div class="process-card reveal">
+<span class="process-step">Step 01</span>
+<h3>Discover</h3>
+<p>I understand your brand, idea, target audience, and the final goal before starting any creative work.</p>
+</div>
+<div class="process-card reveal">
+<span class="process-step">Step 02</span>
+<h3>Plan</h3>
+<p>I organize references, moodboards, content structure, and design direction to build a clear creative path.</p>
+</div>
+<div class="process-card reveal">
+<span class="process-step">Step 03</span>
+<h3>Create</h3>
+<p>I craft visuals, edits, and interfaces with focus on quality, storytelling, and premium presentation.</p>
+</div>
+<div class="process-card reveal">
+<span class="process-step">Step 04</span>
+<h3>Deliver</h3>
+<p>I deliver polished final outputs with clean presentation and revisions based on the project needs.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="section-header reveal">
+<span class="section-no">04</span>
+<span class="section-line"></span>
+<h2 class="section-title">Let’s <em>Work</em> Together</h2>
+</div>
+
+<div class="contact-grid">
+<div class="contact-copy reveal">
+<p>
+Have a project in mind? I’m available for video editing, graphic design, and UI-UX design work.
+Let’s build something premium and memorable together.
+</p>
+<div class="contact-points">
+<span><strong>Name:</strong> Sudharson Ravi</span>
+<span><strong>Email:</strong> sudharsonrvsj@gmail.com</span>
+<span><strong>Location:</strong> India · Available Worldwide</span>
+<span><strong>Status:</strong> Open for freelance and collaboration</span>
+<span><strong>Phone:</strong> +91 9500519847</span>
+</div>
+</div>
+
+<form class="form reveal" id="contactForm">
+<div class="field">
+<label>Your Name</label>
+<input type="text" id="name" placeholder="Enter your name" required>
+</div>
+<div class="field">
+<label>Email Address</label>
+<input type="email" id="email" placeholder="Enter your email" required>
+</div>
+<div class="field">
+<label>Project Type</label>
+<input type="text" id="projectType" placeholder="Video Editing / Graphics / UI-UX" required>
+</div>
+<div class="field">
+<label>Project Details</label>
+<textarea id="projectDetails" placeholder="Tell me about your project" required></textarea>
+</div>
+<button type="submit" class="btn">Send Message</button>
+</form>
+</div>
+</section>
+
+<footer>
+<div class="footer-left">Sudharson<span>.</span>Ravi</div>
+<div class="footer-center">© 2026 All Rights Reserved</div>
+<div class="footer-right">
+<a href="#">Instagram</a>
+<a href="#">Behance</a>
+<a href="#">LinkedIn</a>
+</div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+<div class="lightbox-content">
+<button class="lightbox-close" id="lightboxClose">&times;</button>
+<img id="lightboxImage" src="" alt="Full Preview">
+</div>
+</div>
+
+<div class="lightbox" id="videoLightbox">
+<div class="lightbox-content">
+<button class="lightbox-close" id="videoLightboxClose">&times;</button>
+<video id="lightboxVideo" controls autoplay playsinline>
+<source src="" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+
+<script>
+const projectsData={
+video:[
+{
+title:"Truff Edit",
+description:"A cinematic travel film with clean transitions, atmospheric music sync, and warm color grading for premium visual storytelling.",
+year:"2025",
+video:"videos/truff.mp4"
+},
+{
+title:"Solar",
+description:"Long-form storytelling edit focused on pacing, sound design, subtitles, and engaging scene composition for audience retention.",
+year:"2025",
+video:"videos/solar-video.mp4"
+},
+{
+title:"Brand Promo",
+description:"A high-energy short promo with fast cuts, motion typography, and social media optimized storytelling.",
+year:"2024",
+video:"videos/SHARSNG-SATHISH.mp4"
+}
+],
+graphics:[
+{
+title:"🍬 SRM Sweets & Cakes Website",
+description:"Crispy, spicy, and packed with flavor! Our freshly made Masala Kadalai is the perfect snack for every moment. Taste the authentic crunch crafted with tradition since 1990 by SRM Sweets & Cakes.",
+year:"2025",
+image:"images/sudharson3.jpeg"
+},
+{
+title:"🚖 Periyar Taxi – Best Car Taxi Service",
+description:"Enjoy fast, reliable, and comfortable travel with Periyar Taxi. Available 24/7 with all types of vehicles including cars, tempo travellers, coach vans, mini buses, and buses. Book your ride now and get pickup within 10 minutes in Erode.",
+year:"2024",
+image:"images/sudharson4.jpeg"
+},
+{
+title:"💧 Parryware Premium Bib Cock with Wall Flange",
+description:"Experience smooth water flow with the stylish and durable Parryware Bib Cock. Designed for modern homes, it combines elegance, strength, and long-lasting performance.",
+year:"2025",
+image:"images/sudharson2.jpeg"
+}
+],
+uiux:[
+{
+title:"🍺 Bro Code Beer",
+description:"A modern beverage product showcase page designed for Bro Code Beer, featuring a bold product display, strong branding, and detailed product information sections. The interface combines promotional visuals with specification highlights to create a stylish and impactful product marketing experience.",
+year:"2025",
+image:"images/A3.png",
+link:"https://www.figma.com/proto/MmlzSQRs7N3HeoTl4MUwUp/depakar?node-id=7-3135&t=fJzqMnVBU0xxeMbL-1&scaling=min-zoom&content-scaling=fixed&page-id=7%3A2590&starting-point-node-id=7%3A2607"
+},
+{
+title:"🕷️ Spider-Man",
+description:"A cinematic promotional web design for Spider-Man, built with bold typography, high-contrast red and black visuals, and an immersive hero section. The layout is crafted to showcase cast details, branding, and booking actions in a dramatic and engaging entertainment-style interface.",
+year:"2024",
+image:"images/A2.png",
+link:"https://www.figma.com/proto/MmlzSQRs7N3HeoTl4MUwUp/depakar?node-id=7-5031&t=RhUYFMLNZzkiQJ5Y-1&scaling=min-zoom&content-scaling=fixed&page-id=7%3A2590&starting-point-node-id=7%3A2607"
+},
+{
+title:"🎧 Airpods",
+description:"A premium e-commerce landing page concept for AirPods Pro 2, designed with a minimalist layout, large product-focused visuals, and clean navigation. The interface highlights pricing and product details in a bold Apple-inspired presentation to create a modern and elegant shopping experience.",
+year:"2025",
+image:"images/A1.png",
+link:"https://www.figma.com/proto/MmlzSQRs7N3HeoTl4MUwUp/depakar?node-id=7-3073&t=IdcYY5I4JhSJMQhW-1&scaling=min-zoom&content-scaling=fixed&page-id=7%3A2590&starting-point-node-id=7%3A2607"
+}
+]
+};
+
+const grid=document.getElementById("projectsGrid");
+const tabs=document.querySelectorAll(".tab-btn");
+
+const lightbox=document.getElementById("lightbox");
+const lightboxImage=document.getElementById("lightboxImage");
+const lightboxClose=document.getElementById("lightboxClose");
+
+const videoLightbox=document.getElementById("videoLightbox");
+const lightboxVideo=document.getElementById("lightboxVideo");
+const videoLightboxClose=document.getElementById("videoLightboxClose");
+
+function openLightbox(src,altText){
+lightboxImage.src=src;
+lightboxImage.alt=altText;
+lightbox.classList.add("active");
+document.body.style.overflow="hidden";
+}
+
+function closeLightbox(){
+lightbox.classList.remove("active");
+lightboxImage.src="";
+document.body.style.overflow="auto";
+}
+
+function openVideoLightbox(src){
+lightboxVideo.src=src;
+videoLightbox.classList.add("active");
+document.body.style.overflow="hidden";
+lightboxVideo.play();
+}
+
+function closeVideoLightbox(){
+videoLightbox.classList.remove("active");
+lightboxVideo.pause();
+lightboxVideo.currentTime=0;
+lightboxVideo.src="";
+document.body.style.overflow="auto";
+}
+
+function renderProjects(category){
+grid.innerHTML="";
+
+projectsData[category].forEach(project=>{
+const card=document.createElement("div");
+card.className="project-card";
+
+if(category==="video"){
+card.innerHTML=`
+<div class="project-thumb">
+<video class="project-video" src="${project.video}" muted autoplay loop playsinline></video>
+<span class="project-badge">${category}</span>
+</div>
+<div class="project-content">
+<h3>${project.title}</h3>
+<p>${project.description}</p>
+<div class="project-meta">${project.year} · Sudharson Ravi</div>
+</div>
+`;
+
+card.addEventListener("click",()=>{
+openVideoLightbox(project.video);
+});
+}else if(category==="uiux"){
+card.innerHTML=`
+<a href="${project.link}" class="project-link" target="_blank">
+<div class="project-thumb">
+<img src="${project.image}" alt="${project.title}" class="project-image">
+<span class="project-badge">${category}</span>
+</div>
+<div class="project-content">
+<h3>${project.title}</h3>
+<p>${project.description}</p>
+<div class="project-meta">${project.year} · Sudharson Ravi</div>
+</div>
+</a>
+`;
+}else{
+card.innerHTML=`
+<div class="project-thumb graphics-click">
+<img src="${project.image}" alt="${project.title}" class="project-image">
+<span class="project-badge">${category}</span>
+</div>
+<div class="project-content">
+<h3>${project.title}</h3>
+<p>${project.description}</p>
+<div class="project-meta">${project.year} · Sudharson Ravi</div>
+</div>
+`;
+
+card.addEventListener("click",()=>{
+openLightbox(project.image,project.title);
+});
+}
+
+grid.appendChild(card);
+});
+}
+
+tabs.forEach(tab=>{
+tab.addEventListener("click",()=>{
+tabs.forEach(btn=>btn.classList.remove("active"));
+tab.classList.add("active");
+renderProjects(tab.dataset.tab);
+});
+});
+
+renderProjects("video");
+
+const form=document.getElementById("contactForm");
+
+form.addEventListener("submit",function(e){
+e.preventDefault();
+
+const name=document.getElementById("name").value.trim();
+const email=document.getElementById("email").value.trim();
+const projectType=document.getElementById("projectType").value.trim();
+const projectDetails=document.getElementById("projectDetails").value.trim();
+
+const subject=encodeURIComponent("New Portfolio Enquiry - "+projectType);
+const body=encodeURIComponent(
+"Hello Sudharson Ravi,\n\n"+
+"You have received a new project enquiry from your portfolio website.\n\n"+
+"Name: "+name+"\n"+
+"Email: "+email+"\n"+
+"Project Type: "+projectType+"\n\n"+
+"Project Details:\n"+projectDetails+"\n\n"+
+"Regards,\n"+name
+);
+
+window.location.href=`mailto:sudharsonrvsj@gmail.com?subject=${subject}&body=${body}`;
+
+form.reset();
+});
+
+const reveals=document.querySelectorAll(".reveal");
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+});
+},{threshold:.12});
+
+reveals.forEach(el=>observer.observe(el));
+
+const cursor=document.getElementById("cursor");
+const ring=document.getElementById("cursorRing");
+let mouseX=0,mouseY=0,ringX=0,ringY=0;
+
+window.addEventListener("mousemove",(e)=>{
+mouseX=e.clientX;
+mouseY=e.clientY;
+cursor.style.left=mouseX+"px";
+cursor.style.top=mouseY+"px";
+});
+
+function animateRing(){
+ringX+=(mouseX-ringX)*0.12;
+ringY+=(mouseY-ringY)*0.12;
+ring.style.left=ringX+"px";
+ring.style.top=ringY+"px";
+requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.addEventListener("mouseover",(e)=>{
+if(e.target.closest("a,button,.project-card,.service-card")){
+ring.classList.add("hovered");
+}else{
+ring.classList.remove("hovered");
+}
+});
+
+lightboxClose.addEventListener("click",closeLightbox);
+videoLightboxClose.addEventListener("click",closeVideoLightbox);
+
+lightbox.addEventListener("click",(e)=>{
+if(e.target===lightbox){
+closeLightbox();
+}
+});
+
+videoLightbox.addEventListener("click",(e)=>{
+if(e.target===videoLightbox){
+closeVideoLightbox();
+}
+});
+
+document.addEventListener("keydown",(e)=>{
+if(e.key==="Escape"){
+closeLightbox();
+closeVideoLightbox();
+}
+});
+</script>
+
+</body>
+</html>
