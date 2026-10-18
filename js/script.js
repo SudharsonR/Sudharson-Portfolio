@@ -113,23 +113,23 @@ window.SITE_DATA = {
       art: { motif: "planet", seed: 55, colors: ["#02030a", "#07142b", "#0e3a4a"], accent: "#ff8a3d" } },
     { title: "BMW Motion Reveal", category: "Motion Graphics", duration: "00:32", year: "2026",
       description: "A luxury automotive motion piece with precision cuts, sleek typography, and confident brand energy.",
-      software: ["After Effects", "Figma"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379600/BMW-3.mp4", thumbnail: "assets/images/BMW.jpg", sample: true,
+      software: ["After Effects", "Figma"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379600/BMW-3.mp4", orientation: "portrait", thumbnail: "assets/images/BMW.jpg", sample: true,
       art: { motif: "type", seed: 66, colors: ["#0d0524", "#2b0f6b", "#5b21b6"], accent: "#f5e04a" } },
     { title: "Ozone Social Cut", category: "Social Media", duration: "00:50", year: "2025",
       description: "A fast-paced social edit with crisp pacing, caption-led storytelling, and bold visual hooks for engagement.",
-      software: ["Premiere Pro", "AI Tools"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791381891/Ozone.mp4", thumbnail: "assets/images/ozone.jpg", sample: true,
+      software: ["Premiere Pro", "AI Tools"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791381891/Ozone.mp4", orientation: "portrait", thumbnail: "assets/images/ozone.jpg", sample: true,
       art: { motif: "road", seed: 77, colors: ["#150a1c", "#4a1d3a", "#e0703a"], accent: "#ffb347" } },
     { title: "TPO Launch Promo", category: "Promotional Video", duration: "01:05", year: "2026",
       description: "A launch-day promo cut to spotlight product energy, motion graphics, and a stronger brand-first message.",
-      software: ["After Effects", "Premiere Pro", "Figma"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379591/kesav_bro_TPO__Final.mp4", thumbnail: "assets/images/Real estate 1.jpg", sample: true,
+      software: ["After Effects", "Premiere Pro", "Figma"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379591/kesav_bro_TPO__Final.mp4", orientation: "portrait", thumbnail: "assets/images/Real estate 1.jpg", sample: true,
       art: { motif: "grid", seed: 88, colors: ["#070218", "#1b0a4a", "#5a1a8a"], accent: "#ff3fd0" } },
     { title: "TPO AD Campaign", category: "Cinematic", duration: "02:10", year: "2025",
       description: "A travel and brand film edit using warm tones, elegant pacing, and cinematic storytelling to build atmosphere.",
-      software: ["DaVinci Resolve"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379884/TPO_Riya_AD-1.mp4", thumbnail: "assets/images/Real estate 1.jpg", sample: true,
+      software: ["DaVinci Resolve"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379884/TPO_Riya_AD-1.mp4", orientation: "portrait", thumbnail: "assets/images/Real estate 1.jpg", sample: true,
       art: { motif: "mountain", seed: 99, colors: ["#0a0f24", "#2b3f7a", "#e8a06a"], accent: "#ffd08a" } },
     { title: "AI Dreamscape", category: "Motion Graphics", duration: "00:40", year: "2026",
       description: "An experimental concept combining AI-generated visuals, handcrafted motion design, and atmospheric transitions.",
-      software: ["AI Tools", "After Effects"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379894/Spartans_4.mp4", thumbnail: "assets/images/spartanz.jpg", sample: true,
+      software: ["AI Tools", "After Effects"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379894/Spartans_4.mp4", orientation: "portrait", thumbnail: "assets/images/spartanz.jpg", sample: true,
       art: { motif: "ai", seed: 101, colors: ["#030312", "#150a3a", "#0a2a5a"], accent: "#22e6ff" } }
   ],
 
@@ -652,7 +652,7 @@ function createPlayer(o) {
   const real = !!o.src;
   const playlist = Array.isArray(o.playlist) ? o.playlist.filter(Boolean) : [];
   const videoSource = url => o.directSource ? url : optimizeCloudinaryVideo(url);
-  const isPortrait = /(?:^|\/)portrait-\d+\.mp4$/i.test(o.src || '');
+  const isPortrait = o.orientation === 'portrait' || /(?:^|\/)portrait-\d+\.mp4$/i.test(o.src || '');
   const root = document.createElement('div');
   root.className = 'pl'; root.dataset.playing = 'false';
   root.dataset.videoOrientation = isPortrait ? 'portrait' : 'landscape';
@@ -725,7 +725,7 @@ function createPlayer(o) {
   function seek(s) { t = clamp(s, 0, dur || 0); if (real && dur) v.currentTime = t; update(); }
 
   if (real) {
-    v.addEventListener('loadedmetadata', () => { dur = v.duration || 0; durEl.textContent = mmss(dur); update(); });
+    v.addEventListener('loadedmetadata', () => { dur = v.duration || 0; durEl.textContent = mmss(dur); fitPortraitPlayer(); update(); });
     v.addEventListener('play', () => { setPlaying(true); cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); });
     v.addEventListener('pause', () => setPlaying(false));
     v.addEventListener('ended', () => {
@@ -763,14 +763,22 @@ function createPlayer(o) {
   muteBtn.addEventListener('click', () => { if (muted) setVol(lastVol || 1); else { lastVol = vol || 1; setVol(0); } });
 
   const fsEl = () => document.fullscreenElement || document.webkitFullscreenElement;
+  function fitPortraitPlayer() {
+    if (!isPortrait || !v || !v.videoWidth || !v.videoHeight || fsEl() === root) return;
+    const ratio = v.videoWidth / v.videoHeight;
+    const availableWidth = root.parentElement ? root.parentElement.clientWidth : 420;
+    stage.style.aspectRatio = `${v.videoWidth} / ${v.videoHeight}`;
+    root.style.width = `${Math.min(420, availableWidth, window.innerHeight * 0.55 * ratio)}px`;
+  }
   function toggleFS() {
     try {
       if (fsEl() === root) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
       else { const p = (root.requestFullscreen || root.webkitRequestFullscreen).call(root); if (p && p.catch) p.catch(() => {}); }
     } catch (err) { /* fullscreen may be blocked in embedded previews */ }
   }
-  const onFS = () => { const on = fsEl() === root; fsBtn.innerHTML = icon(on ? 'minimize' : 'maximize'); fsBtn.setAttribute('aria-label', on ? 'Exit fullscreen' : 'Fullscreen'); };
+  const onFS = () => { const on = fsEl() === root; fsBtn.innerHTML = icon(on ? 'minimize' : 'maximize'); fsBtn.setAttribute('aria-label', on ? 'Exit fullscreen' : 'Fullscreen'); fitPortraitPlayer(); };
   document.addEventListener('fullscreenchange', onFS); document.addEventListener('webkitfullscreenchange', onFS);
+  if (isPortrait) window.addEventListener('resize', fitPortraitPlayer);
   fsBtn.addEventListener('click', toggleFS);
   stage.addEventListener('click', toggle);
   stage.addEventListener('dblclick', toggleFS);
@@ -786,6 +794,7 @@ function createPlayer(o) {
     destroy() {
       pause(); cancelAnimationFrame(raf);
       document.removeEventListener('fullscreenchange', onFS); document.removeEventListener('webkitfullscreenchange', onFS);
+      if (isPortrait) window.removeEventListener('resize', fitPortraitPlayer);
       if (fsEl() === root) { try { (document.exitFullscreen || document.webkitExitFullscreen).call(document); } catch (e) {} }
       if (v) { v.removeAttribute('src'); v.load(); }
     }
@@ -841,7 +850,7 @@ function openProject(i, opts = {}) {
        <button type="button" class="btn-mini" data-nav="-1">${icon('left')} Previous</button>
        <button type="button" class="btn-mini" data-nav="1">Next ${icon('right')}</button>
      </div>`;
-  mPlayer = createPlayer({ src: p.videoUrl, poster: p.thumbnail, duration: parseDur(p.duration), clips: [`var(--thumb-${i})`], captions: [p.title] });
+  mPlayer = createPlayer({ src: p.videoUrl, poster: p.thumbnail, orientation: p.orientation, directSource: p.orientation === 'portrait', duration: parseDur(p.duration), clips: [`var(--thumb-${i})`], captions: [p.title] });
   $('#modalPlayer').appendChild(mPlayer.el);
   modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false');
   document.documentElement.style.overflow = 'hidden';
