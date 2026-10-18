@@ -1,0 +1,21 @@
+# Environment files
+.env
+.env.*
+
+# Dependencies
+node_modules/
+
+# Build output
+/dist/
+
+# Vercel metadata
+.vercel/
+
+# Locally stored videos (website videos are hosted on Cloudinary)
+*.mp4
+*.webm
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
