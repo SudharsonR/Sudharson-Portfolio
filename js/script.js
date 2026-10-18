@@ -1,4 +1,4 @@
-window.SITE_DATA = {
+﻿window.SITE_DATA = {
 
   /* ---------- GLOBAL SETTINGS ---------- */
   settings: {
@@ -17,7 +17,7 @@ window.SITE_DATA = {
       ["Player", "Sudharson Ravi"],
       ["Class",  "Video Editor"],
       ["Level",  "2+ Years"],
-      ["Spec",   "Cinematic × AI"]
+      ["Spec",   "Cinematic Ã— AI"]
     ]
   },
 
@@ -35,7 +35,7 @@ window.SITE_DATA = {
     ]
   },
 
-  /* ---------- ABILITY CARDS (About section) — value is 0–100 ---------- */
+  /* ---------- ABILITY CARDS (About section) â€” value is 0â€“100 ---------- */
   abilities: [
     { name: "Video Editing",     value: 95, desc: "Pacing, rhythm and clean cuts that hold attention." },
     { name: "Motion Graphics",   value: 90, desc: "Titles, transitions and animated graphics." },
@@ -45,25 +45,25 @@ window.SITE_DATA = {
     { name: "Figma",             value: 80, desc: "Layouts, thumbnails and design assets." }
   ],
 
-  /* ---------- SOFTWARE ARSENAL — level is 0–100, accent is the card glow colour ---------- */
+  /* ---------- SOFTWARE ARSENAL â€” level is 0â€“100, accent is the card glow colour ---------- */
   arsenal: [
-    { name: "DaVinci Resolve",   mark: "Dr", level: 90, accent: "#ff7a45", slot: "Edit · Colour",
+    { name: "DaVinci Resolve",   mark: "Dr", level: 90, accent: "#ff7a45", slot: "Edit Â· Colour",
       desc: "Cinematic cutting, colour grading and finishing.",
       detail: "Where raw footage gets its final look: precise cuts, colour and delivery.",
       uses: ["Colour grading", "Cinematic editing", "Finishing & delivery"] },
-    { name: "After Effects",     mark: "Ae", level: 88, accent: "#9d8cff", slot: "Motion · VFX",
+    { name: "After Effects",     mark: "Ae", level: 88, accent: "#9d8cff", slot: "Motion Â· VFX",
       desc: "Motion graphics, compositing and visual effects.",
       detail: "Animated titles, transitions, compositing and effects that add polish and impact.",
       uses: ["Motion graphics", "Compositing", "Visual effects"] },
-    { name: "Premiere Pro",      mark: "Pr", level: 95, accent: "#e879ff", slot: "Edit · Assembly",
+    { name: "Premiere Pro",      mark: "Pr", level: 95, accent: "#e879ff", slot: "Edit Â· Assembly",
       desc: "Fast, precise storytelling edits.",
       detail: "Story-driven editing for short-form, social and long-form projects.",
       uses: ["Story-driven editing", "Short-form content", "Social media cuts"] },
-    { name: "Figma",             mark: "Fg", level: 80, accent: "#16d68a", slot: "Design · Layout",
+    { name: "Figma",             mark: "Fg", level: 80, accent: "#16d68a", slot: "Design Â· Layout",
       desc: "Layouts, thumbnails and design assets.",
       detail: "Planning thumbnails, layouts and motion design assets before they reach the timeline.",
       uses: ["Thumbnails", "Layouts & storyboards", "Design assets"] },
-    { name: "AI Tools",          mark: "AI", level: 90, accent: "#22e6ff", slot: "Boost · Workflow",
+    { name: "AI Tools",          mark: "AI", level: 90, accent: "#22e6ff", slot: "Boost Â· Workflow",
       desc: "Modern AI tools across the whole workflow.",
       detail: "I actively use modern AI tools for video editing, workflow automation, ideation, visual generation, and post-production.",
       uses: ["Workflow automation", "Ideation", "Visual generation", "Post-production"] }
@@ -89,7 +89,7 @@ window.SITE_DATA = {
   /* ---------- PROJECTS (10 placeholders) ----------
      videoUrl:  direct link to the video file (.mp4/.webm). Empty = simulated placeholder player.
      thumbnail: URL of your own thumbnail. Empty = auto-generated placeholder art from `art`.
-     duration:  display text, e.g. "01:12".  Keep `category` consistent — filter tabs are built from it. */
+     duration:  display text, e.g. "01:12".  Keep `category` consistent â€” filter tabs are built from it. */
   projects: [
     { title: "Neon Nights", category: "Cinematic", duration: "01:12", year: "2026",
       description: "A moody, night-city visual set with neon grading, cinematic pacing, and a polished urban atmosphere.",
@@ -105,7 +105,7 @@ window.SITE_DATA = {
       art: { motif: "orbs", seed: 33, colors: ["#050a1f", "#0d1d5c", "#4b1c8f"], accent: "#22e6ff" } },
     { title: "Sharang Sathish Reel", category: "Commercial", duration: "00:45", year: "2026",
       description: "A sleek product-focused commercial edit blending premium visuals, motion graphics, and polished cut rhythm.",
-      software: ["DaVinci Resolve", "After Effects"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379746/SHARSNG_SATHISH.mp4", thumbnail: "assets/images/shar 1.jpg", sample: true,
+      software: ["DaVinci Resolve", "After Effects"], videoUrl: "https://res.cloudinary.com/atmtkyag/video/upload/v1791379127/CANDID_VIDEO-3.mp4", thumbnail: "assets/images/Candid 1.jpg", sample: true,
       art: { motif: "product", seed: 44, colors: ["#04070f", "#0b1b3d", "#123a7a"], accent: "#2f6bff" } },
     { title: "The Last Signal", category: "Short Film", duration: "06:40", year: "2025",
       description: "A cinematic sci-fi edit shaped by suspense, atmosphere, and a carefully paced narrative flow.",
@@ -133,7 +133,7 @@ window.SITE_DATA = {
       art: { motif: "ai", seed: 101, colors: ["#030312", "#150a3a", "#0a2a5a"], accent: "#22e6ff" } }
   ],
 
-  /* ---------- CLIENT FEEDBACK (3 cards) — PLACEHOLDERS: replace with real clients ---------- */
+  /* ---------- CLIENT FEEDBACK (3 cards) â€” PLACEHOLDERS: replace with real clients ---------- */
   clientFeedback: [
     { name: "Parthiban", projectType: "YouTube Video", rating: 5, avatar: "", sample: true,
       quote: "You transformed the raw footage into something much more engaging. The editing was exactly what I needed." },
@@ -143,7 +143,7 @@ window.SITE_DATA = {
       quote: "Professional editing and very fast turnaround." }
   ],
 
-  /* ---------- EDITOR STATS — edit values freely. Use `text` for non-numeric values like "24/7". ---------- */
+  /* ---------- EDITOR STATS â€” edit values freely. Use `text` for non-numeric values like "24/7". ---------- */
   stats: [
     { value: 2,   suffix: "+", label: "Years experience" },
     { value: 10,  suffix: "+", label: "Featured projects" },
@@ -151,7 +151,7 @@ window.SITE_DATA = {
     { text: "24/7",              label: "Passion for editing" }
   ],
 
-  /* ---------- TESTIMONIAL SLIDER — PLACEHOLDERS: replace with real reviews ---------- */
+  /* ---------- TESTIMONIAL SLIDER â€” PLACEHOLDERS: replace with real reviews ---------- */
   testimonials: [
     { name: "Nithis", company: "Agency", rating: 5, avatar: "", sample: true,
       quote: "The launch video felt like a proper campaign. Every cut had a reason, and the pacing kept people watching to the end." },
@@ -172,10 +172,10 @@ window.SITE_DATA = {
     email: "sudharsonrvsj@gmail.com",      // used by the contact form's fallback (opens the visitor's mail app)
     formEndpoint: "",                 // optional: Formspree / Netlify / your own POST URL. Empty = uses email above.
     projectTypes: ["YouTube video", "Instagram Reels / Shorts", "Commercial / Ad", "Cinematic", "Motion graphics", "Social media content", "Promotional video", "Something else"],
-    budgets: ["Under ₹2,500", "₹2,500 – ₹5,000", "₹5,000 – ₹10,000", "Under₹10,000", "Not sure yet"]
+    budgets: ["Under â‚¹2,500", "â‚¹2,500 â€“ â‚¹5,000", "â‚¹5,000 â€“ â‚¹10,000", "Underâ‚¹10,000", "Not sure yet"]
   },
 
-  /* ---------- SOCIAL LINKS — replace the URLs and handles ---------- */
+  /* ---------- SOCIAL LINKS â€” replace the URLs and handles ---------- */
   socials: [
     { icon: "instagram", label: "Instagram", handle: "@SudharsonRavi",       url: "https://www.instagram.com/unemployed_editor.24fps?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" },
     { icon: "youtube",   label: "YouTube",   handle: "youtube.com/@yourchannel", url: "https://youtube.com/@sudharsonravi07?si=VCd9rCtGFeCrT0js" },
@@ -184,7 +184,7 @@ window.SITE_DATA = {
 
   footer: {
     tagline: "Video Editor / Creative Storyteller",
-    copyright: "© 2026 Sudharson Ravi. All Rights Reserved."
+    copyright: "Â© 2026 Sudharson Ravi. All Rights Reserved."
   }
 };
 /* =========================================
@@ -246,9 +246,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ==========================================================================
-   SUDHARSON RAVI — PORTFOLIO
-   Structure:  helpers → icons → procedural thumbnails → section renderers
-               → player → modal → hero FX → interactions → boot/init
+   SUDHARSON RAVI â€” PORTFOLIO
+   Structure:  helpers â†’ icons â†’ procedural thumbnails â†’ section renderers
+               â†’ player â†’ modal â†’ hero FX â†’ interactions â†’ boot/init
    All content comes from window.SITE_DATA (see the EDIT ME block above).
    ========================================================================== */
 (() => {
@@ -306,7 +306,7 @@ const stars = n => `<span class="stars" role="img" aria-label="${n} out of 5 sta
 /* ==========================================================================
    PROCEDURAL PLACEHOLDER THUMBNAILS
    Generated as SVG so the page needs no image files. Replace by setting
-   `thumbnail: "https://…"` on any project.
+   `thumbnail: "https://â€¦"` on any project.
    ========================================================================== */
 const W = 640, H = 360;
 const f = n => Math.round(n * 10) / 10;
@@ -439,7 +439,7 @@ function buildThumbs() {
    ========================================================================== */
 function bind() {
   $$('[data-bind]').forEach(el => { const v = get(D, el.dataset.bind); if (typeof v === 'string') el.textContent = v; });
-  document.title = `${D.profile.name.replace(/\b(\w)(\w*)/g, (m, a, b) => a + b.toLowerCase())} — ${D.profile.role.charAt(0) + D.profile.role.slice(1).toLowerCase()} | Cinematic Editing, Motion Graphics & AI Workflows`;
+  document.title = `${D.profile.name.replace(/\b(\w)(\w*)/g, (m, a, b) => a + b.toLowerCase())} â€” ${D.profile.role.charAt(0) + D.profile.role.slice(1).toLowerCase()} | Cinematic Editing, Motion Graphics & AI Workflows`;
   // structured data for search engines (built from the same data)
   const ld = document.createElement('script');
   ld.type = 'application/ld+json';
@@ -492,7 +492,7 @@ function setLoadout(i) {
   $$('.gear').forEach((b, k) => { b.setAttribute('aria-pressed', String(k === i)); b.querySelector('.gear-eq').textContent = k === i ? 'Equipped' : 'Equip'; });
   box.style.setProperty('--acc', g.accent);
   box.innerHTML = `<span class="hex" style="--acc:${g.accent}"><span>${esc(g.mark)}</span></span>
-    <div class="lo-copy"><span class="lo-tag">EQUIPPED — ${esc(g.slot.toUpperCase())}</span><div class="lo-name">${esc(g.name)}</div><p>${esc(g.detail)}</p></div>
+    <div class="lo-copy"><span class="lo-tag">EQUIPPED â€” ${esc(g.slot.toUpperCase())}</span><div class="lo-name">${esc(g.name)}</div><p>${esc(g.detail)}</p></div>
     <ul class="lo-uses">${g.uses.map(u => `<li>${esc(u)}</li>`).join('')}</ul>`;
 }
 
@@ -522,7 +522,7 @@ function renderMissions(filter = 'All') {
   const items = D.projects.map((p, i) => ({ p, i })).filter(({ p }) => filter === 'All' || p.category === filter);
   const grid = $('#missionGrid');
   grid.innerHTML = items.map(({ p, i }, k) => missionHTML(p, i, k)).join('');
-  $('#mCount').textContent = `Showing ${pad(items.length)} / ${pad(D.projects.length)} missions${filter === 'All' ? '' : ' — ' + filter}`;
+  $('#mCount').textContent = `Showing ${pad(items.length)} / ${pad(D.projects.length)} missions${filter === 'All' ? '' : ' â€” ' + filter}`;
   $$('.fbtn').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cat === filter)));
   $$('.mission', grid).forEach(el => attachTilt(el, 7, true));
 }
@@ -543,7 +543,7 @@ function renderFeedback() {
       ${sample(c)}<span class="fb-tag">Transmission ${pad(i + 1)}</span>
       <div class="fb-who">${avatar(c.name, c.avatar)}<div><h3>${esc(c.name)}</h3><p>${esc(c.projectType)}</p></div></div>
       ${stars(c.rating)}
-      <blockquote>“${esc(c.quote)}”</blockquote>
+      <blockquote>â€œ${esc(c.quote)}â€</blockquote>
     </article>`).join('');
 }
 
@@ -555,14 +555,14 @@ function renderStats() {
       <div class="stat-label">${esc(s.label)}</div>
     </div>`;
   }).join('');
-  if (showSample) { const n = $('#statsNote'); n.hidden = false; n.textContent = 'Sample values — edit them in SITE_DATA.stats'; }
+  if (showSample) { const n = $('#statsNote'); n.hidden = false; n.textContent = 'Sample values â€” edit them in SITE_DATA.stats'; }
 }
 
 function renderSlider() {
   const n = D.testimonials.length;
   $('#slTrack').innerHTML = D.testimonials.map((t, i) =>
     `<article class="sl-slide" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${n}">
-      ${sample(t)}<div class="sl-quote" aria-hidden="true">“</div>
+      ${sample(t)}<div class="sl-quote" aria-hidden="true">â€œ</div>
       <blockquote>${esc(t.quote)}</blockquote>
       <div class="sl-who">${avatar(t.name, t.avatar)}<div><h3>${esc(t.name)}</h3><p>${esc(t.company)}</p></div>${stars(t.rating)}</div>
     </article>`).join('');
@@ -643,9 +643,9 @@ function cursorTick() {
 }
 
 /* ==========================================================================
-   VIDEO PLAYER — used by the showreel and the project modal.
-   • With a `src` it wraps a real <video>.
-   • Without one it runs a simulated placeholder playback (timer + project thumbnails),
+   VIDEO PLAYER â€” used by the showreel and the project modal.
+   â€¢ With a `src` it wraps a real <video>.
+   â€¢ Without one it runs a simulated placeholder playback (timer + project thumbnails),
      so every control is fully functional before you add real footage.
    ========================================================================== */
 function createPlayer(o) {
@@ -662,7 +662,7 @@ function createPlayer(o) {
        <i class="pl-fx"></i><i class="pl-glint"></i>
        <i class="pl-corner tl"></i><i class="pl-corner tr"></i><i class="pl-corner bl"></i><i class="pl-corner br"></i>
        <span class="pl-hud rec"><i class="rec-dot"></i>REC</span><span class="pl-hud tc">00:00:00:00</span>
-       <span class="pl-hud cap"><span class="cap-t"></span>${real ? '' : '<small>Placeholder playback — add a video URL in SITE_DATA</small>'}</span>
+       <span class="pl-hud cap"><span class="cap-t"></span>${real ? '' : '<small>Placeholder playback â€” add a video URL in SITE_DATA</small>'}</span>
        <button type="button" class="pl-center" aria-label="Play video">${icon('play', 'fill')}</button>
      </div>
      <div class="pl-ctl">
@@ -837,12 +837,12 @@ function openProject(i, opts = {}) {
     `<button type="button" class="modal-close" data-close aria-label="Close project">${icon('x')}</button>
      <div id="modalPlayer"></div>
      <div class="modal-info">
-       <div><span class="kick">Mission ${pad(i + 1)} — ${esc(p.category)}</span><h3 id="modalTitle">${esc(p.title)}</h3><p>${esc(p.description)}</p>
+       <div><span class="kick">Mission ${pad(i + 1)} â€” ${esc(p.category)}</span><h3 id="modalTitle">${esc(p.title)}</h3><p>${esc(p.description)}</p>
          <ul class="chips" style="margin-top:16px" aria-label="Software used">${p.software.map(s => `<li class="chip">${esc(s)}</li>`).join('')}</ul></div>
        <dl class="modal-meta">
          <div><dt>Category</dt><dd>${esc(p.category)}</dd></div>
-         <div><dt>Year</dt><dd>${esc(p.year || '—')}</dd></div>
-         <div><dt>Duration</dt><dd>${esc(p.duration || '—')}</dd></div>
+         <div><dt>Year</dt><dd>${esc(p.year || 'â€”')}</dd></div>
+         <div><dt>Duration</dt><dd>${esc(p.duration || 'â€”')}</dd></div>
          <div><dt>Software</dt><dd>${esc(p.software.join(', '))}</dd></div>
        </dl>
      </div>
@@ -1057,7 +1057,7 @@ function initForm() {
     e.preventDefault(); status.className = 'form-status';
     if (!validate()) { status.textContent = 'Fix the highlighted fields and try again.'; status.classList.add('bad'); const bad = form.querySelector('[aria-invalid="true"]'); if (bad) bad.focus(); return; }
     const data = { name: F.name.value.trim(), email: F.email.value.trim(), type: $('#f-type').value, budget: $('#f-budget').value, message: F.msg.value.trim() };
-    lab.textContent = 'Transmitting…'; btn.disabled = true;
+    lab.textContent = 'Transmittingâ€¦'; btn.disabled = true;
     try {
       if (D.contact.formEndpoint) {
         const res = await fetch(D.contact.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) });
@@ -1108,7 +1108,7 @@ function startCounter(el) {
   if (reduced) return;
   const t0 = performance.now();
   if (el.hasAttribute('data-scramble')) {
-    const text = el.dataset.scramble, chars = '01/·#*+';
+    const text = el.dataset.scramble, chars = '01/Â·#*+';
     (function step(now) {
       const p = clamp((now - t0) / 1100, 0, 1), k = Math.floor(p * text.length);
       el.textContent = p >= 1 ? text : text.slice(0, k) + Array.from(text.slice(k)).map(c => c === ' ' ? ' ' : chars[(Math.random() * chars.length) | 0]).join('');
@@ -1144,7 +1144,7 @@ function runBoot(after) {
   };
   if (reduced || !(D.settings && D.settings.introEnabled)) { el.classList.add('gone'); finish.done = true; body.classList.remove('booting'); body.classList.add('ready'); after(); return; }
   const fill = $('#bootFill'), pct = $('#bootPct'), linesEl = $('#bootLines');
-  const lines = ['MOUNTING MEDIA POOL', 'SYNCING TIMELINE — 24 FPS', 'LOADING AI WORKFLOW MODULES', 'CALIBRATING COLOUR PIPELINE', 'SYSTEM READY'];
+  const lines = ['MOUNTING MEDIA POOL', 'SYNCING TIMELINE â€” 24 FPS', 'LOADING AI WORKFLOW MODULES', 'CALIBRATING COLOUR PIPELINE', 'SYSTEM READY'];
   let shown = 0; const t0 = performance.now(), total = 2600;
   (function step(now) {
     if (finish.done) return;
